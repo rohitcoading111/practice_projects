@@ -33,3 +33,15 @@ export const updateNote = async (data)=>{
 
     return notes;
 }
+
+
+export const deleteNote = async (data)=>{
+    const {id} = data;
+    const val = await notesModel.findById(id);
+    if(!val){
+      throw new Error("this note has been not available");
+    }
+    await val.deleteOne();
+    return val;
+
+}
