@@ -45,3 +45,9 @@ export const deleteNote = async (data)=>{
     return val;
 
 }
+
+
+export const getAllNote  = async ()=>{
+    const notes = await notesModel.find();
+    return notes;
+}
