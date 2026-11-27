@@ -16,3 +16,20 @@ export const createNote = async (data)=>{
     return note;
    
 }
+
+export const updateNote = async (data)=>{
+    const {id,title,description} = data;
+    const notes = await notesModel.findById(id);
+    if(!notes){
+        throw new Error("notes has been not presented")
+    }
+    if(title !== undefined){
+        notes.title = title;
+    }
+    if(description != undefined){
+        notes.description = description;
+    };
+    await notes.save();
+
+    return notes;
+}
