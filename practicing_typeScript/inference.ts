@@ -17,3 +17,14 @@ let j = "jk"
 
 
 console.log(n +" " + j);
+
+
+// union
+
+
+let items: Array<string | number> = [1,"rohit",];
+
+
+// tupels
+
+let locations : [number,number] = [440.45,-45.5];
