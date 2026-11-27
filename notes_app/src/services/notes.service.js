@@ -51,3 +51,12 @@ export const getAllNote  = async ()=>{
     const notes = await notesModel.find();
     return notes;
 }
+
+export const getSingleNote = async(data)=>{
+    const{id} = data;
+    const note = await notesModel.findById(id);
+    if(!note){
+        throw new Error("note has been not finded");
+    }
+    return note;
+}
