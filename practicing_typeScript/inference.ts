@@ -42,3 +42,18 @@ user = {
     email:"rohiy@gmail.comn",
     age:30,
 }
+
+
+// type aliases
+
+type U = {
+    name:string,
+    email:string,
+    age:number,
+}
+
+let users:U = {
+    name:"rohit",
+    email:"rohiy@gmail.comn",
+    age:30,
+}
