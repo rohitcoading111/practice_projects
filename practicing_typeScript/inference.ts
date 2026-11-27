@@ -28,3 +28,17 @@ let items: Array<string | number> = [1,"rohit",];
 // tupels
 
 let locations : [number,number] = [440.45,-45.5];
+
+// object types
+
+let user : {
+    name:string,
+    email:string,
+    age:number,
+}
+
+user = {
+    name:"rohit",
+    email:"rohiy@gmail.comn",
+    age:30,
+}
