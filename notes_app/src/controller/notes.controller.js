@@ -1,6 +1,6 @@
-import { createNote } from "../services/notes.service.js";
+import { createNote,getAllNote } from "../services/notes.service.js";
 
-export const createNotes = async (req, res) => {
+export const createNotesController = async (req, res) => {
     try {
         const data = await createNote(req.body);
         return res.status(201).json({
@@ -15,3 +15,18 @@ export const createNotes = async (req, res) => {
         });
     }
 };
+
+export const getNotesController = async (req,res) =>{
+    try {
+        const data = await getAllNote()
+        return res.status(200).json({
+            data,
+            message:"data fetched successfully"
+        })
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: error.message || "Failed to get notes",
+        });
+    }
+}
