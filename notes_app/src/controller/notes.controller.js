@@ -1,4 +1,4 @@
-import { createNote,getAllNote,getSingleNote } from "../services/notes.service.js";
+import { createNote,getAllNote,getSingleNote,updateNote } from "../services/notes.service.js";
 
 export const createNotesController = async (req, res) => {
     try {
@@ -47,3 +47,23 @@ export const getSingleNoteController = async (req,res) =>{
         });
     }
 }
+
+export const updateNotesController = async (req, res) => {
+    try {
+        const data = await updateNote({
+            id: req.params.id,
+            ...req.body
+        });
+
+        res.status(200).json({
+            success: true,
+            message: "Note updated successfully",
+            data
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: error.message || "Failed to update note"
+        });
+    }
+};
