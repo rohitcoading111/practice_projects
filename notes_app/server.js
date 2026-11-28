@@ -1,6 +1,5 @@
-import express from "express"
 import connectDb from "./src/config/db.js";
-const app = express();
+import app from "./src/app/app.js";
 connectDb();
 // server has been created 
 

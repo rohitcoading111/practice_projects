@@ -1,7 +1,7 @@
 import {validationResult,body} from "express-validator"
 
 
-const notes = [
+export const notes = [
     body("title").trim()
     .notEmpty().withMessage("title is not a empty string").bail(),
 
