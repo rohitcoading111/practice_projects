@@ -1,4 +1,4 @@
-import { createNote,getAllNote,getSingleNote,updateNote } from "../services/notes.service.js";
+import { createNote,getAllNote,getSingleNote,updateNote,deleteNote } from "../services/notes.service.js";
 
 export const createNotesController = async (req, res) => {
     try {
@@ -67,3 +67,18 @@ export const updateNotesController = async (req, res) => {
         });
     }
 };
+
+export const deleteNoteController = async (req,res) =>{
+    try {
+        const data = await deleteNote(req.params);
+        return res.status(200).json({
+            data,
+            message:"note deleted successfully"
+        })
+    } catch (error) {
+         res.status(500).json({
+            success: false,
+            message: error.message || "Failed to delete note"
+        });
+    }
+}
