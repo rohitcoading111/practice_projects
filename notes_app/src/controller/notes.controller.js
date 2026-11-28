@@ -1,4 +1,4 @@
-import { createNote,getAllNote } from "../services/notes.service.js";
+import { createNote,getAllNote,getSingleNote } from "../services/notes.service.js";
 
 export const createNotesController = async (req, res) => {
     try {
@@ -27,6 +27,23 @@ export const getNotesController = async (req,res) =>{
         return res.status(500).json({
             success: false,
             message: error.message || "Failed to get notes",
+        });
+    }
+}
+
+
+export const getSingleNoteController = async (req,res) =>{
+    try {
+        const data = await getSingleNote(req.params)
+        return res.status(200).json({
+            data,
+            message:"note fetched successfully",
+            success:true
+        })
+    } catch (error) {
+         return res.status(500).json({
+            success: false,
+            message: error.message || "Failed to get note",
         });
     }
 }
